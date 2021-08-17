@@ -1,0 +1,257 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    //- script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+    //- link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+    //- link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet' href='./styledropmenu.css')
+    link(rel='stylesheet' href='./menustyle.css')
+    script(src='./mainpug.js')
+    title Page Title
+    style.
+      .just-padding {
+      background-image: url("m.jpg");
+      }
+      .dynamic-menu a span {
+      color: whitesmoke; 
+      }
+  body
+    // Bot UI
+    .open-button
+      a(href='http://localhost:3000/m_bot')
+        img(src='bot2.gif')
+    // Bot UI end
+    // HEADER SECTION
+    #myTopnav.topnav
+      a.brand(href='http://localhost:3000/index') HealthUp
+      .dropmenu
+        button.menubtn= user
+          i.fa.fa-caret-down
+        .dropmenu-content
+          a(href='/users') View Profile
+          a(href='#Update_profile' onclick="document.getElementById('id01').style.display='block'" style='width:auto;') Update Profile
+          a(href='#Add_data' onclick="document.getElementById('id03').style.display='block'" style='width:auto;') Add Data
+          a(href='/users/id') Delete Profile
+          a(href='http://localhost:3000/auth') Logout
+      a(href='#contact') Contact
+      a(href='#about') About
+      a(href='http://localhost:3000/index') Home
+      a.active(href='http://localhost:3000/m_bot') Medibot
+      a.icon(href='javascript:void(0);' style='font-size:15px;' onclick='myFunction()') ☰
+    // END OF HEADER SECTION
+    // Update Profile
+    #id01.modal
+      span.close(onclick="document.getElementById('id01').style.display='none'" title='Close Modal') ×
+      form.modal-content(method='POST' action='/users' )
+        .container
+          h1 Update Profile
+          p Please fill in this form to update your account.
+          hr
+          label(for='name')
+            b Name
+          input.modal-input(type='text' placeholder='Enter Name' name='name' required='')
+          label(for='email')
+            b Email
+          input.modal-input(type='text' placeholder='Enter Email' name='email' required='')
+          label(for='phone')
+            b Phone No
+          input.modal-input(type='text' placeholder='Enter Phone' name='phone' required='')
+          label(for='password')
+            b Password
+          input.modal-input(type='password' placeholder='Enter password' name='password' required='')
+          label(for='age')
+            b Age
+          input.modal-input(type='age' placeholder='Enter Age' name='age' required='')
+          label(for='weight')
+            b Weight
+          input.modal-input(type='number' placeholder='Enter Weight' name='weight' required='')
+          label(for='height')
+            b Height
+          input.modal-input(type='number' placeholder='Enter Height' name='height' required='')
+          .clearfix
+            button.cancelbtn(type='button' onclick="document.getElementById('id01').style.display='none'")
+              | Cancel
+            button.signupbtn(type='submit') Update
+    // Update Profile
+    
+    // Add data
+    #id03.modal
+      span.close(onclick="document.getElementById('id03').style.display='none'" title='Close Modal') ×
+      form.modal-content(method='POST' action='/mentalhealth')
+        .container
+          h1 Add Data
+          p Please fill in this form to add new mental disease.
+          hr
+          label(for='name')
+            b Name Of Mental Disease
+          input.modal-input(type='text' placeholder='Enter Disorder' name='name' required='')
+          label(for='symptoms')
+            b Symptoms
+          input.modal-input(type='text' placeholder='Enter Symptoms' name='symptoms' required='')
+          label(for='treatment')
+            b Treatment
+          input.modal-input(type='text' placeholder='Enter Treatment' name='treatment' required='')
+          label(for='diet')
+            b Diet
+          input.modal-input(type='text' placeholder='Enter Diet' name='diet' required='')
+          label(for='not_diet')
+            b Avoid Food
+          input.modal-input(type='text' placeholder='Enter Food to Avoid' name='not_diet' required='')
+          .clearfix
+            button.cancelbtn(type='button' onclick="document.getElementById('id03').style.display='none'")
+              | Cancel
+            button.signupbtn(type='submit') Update
+    // Add Data end
+    // Center Section
+    .just-padding
+      h2 Mental Health
+       br
+      .dynamic-menu
+         - for (var i = 0 ; i< name.length ; i++) {
+           -k= "/mentalhealth/" + name[i];
+           a(href= k)
+             span= name[i]
+             br 
+             br   
+         -}
+    // End Of Center Section
+    // Contact Section
+    #contact.contact-section
+      .contact-section-content
+        h4.contact-info Contact Info
+        .content-manager
+          p.address
+          h4
+            i.fa.fa-address-card(aria-hidden='true')
+            | Address
+          |  216, Sneh Nagar, Mandsaur 
+          br
+          |                 Madhya Pardesh ,India
+          p
+          p.phone
+          h4
+            i.fa.fa-phone(aria-hidden='true')
+            | Phone
+          |  8269745658
+          p
+          p.email
+          h4
+            i.fa.fa-envelope-o(aria-hidden='true')
+            | Email
+          br
+          a(href='') raviprajapati45678@gmail.com
+          p
+    // About Section
+    #about.about-section
+      h1.about-section-heading ABOUT US
+      br
+      .developer
+        .divisions.middle
+          .developer-card
+            img(src='./prateek.jpeg' alt='')
+          .developer-des
+            h2.name-heading Pratik Gupta
+            br
+            h4
+              | Front-End 
+              br
+              |  & 
+              br
+              |  Database Collection
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./rishabh.jpeg' alt='')
+          .developer-des.middle
+            h2.name-heading Rishabh Rathore
+            br
+            h4
+              | Back-end
+              br
+              |  & 
+              br
+              | Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./ravi.jpg' alt='')
+          .developer-des.middle
+            h2.name-heading Ravi Varujana
+            br
+            h4
+              | Front-end
+              br
+              |  & 
+              br
+              |  Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./tanishq.jpeg' alt='')
+          .developer-des.middle
+            h2.name-heading Tanishq Patidar
+            br
+            h4
+              | Back-end 
+              br
+              |  & 
+              br
+              | Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./varun.jpg' alt='')
+          .developer-des.middle
+            h2.name-heading Varun Lachhwani
+            br
+            h4
+              | Front-End 
+              br
+              |  & 
+              br
+              | Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+      p.about-section-footer
+        | This is a demo website by the students of IT department 3rd year currently
+        | working on their minor project. 
+        br
+        | All the teams members had put there efforts to make this project best.
+        |             'HealthUp' our website contains an 
+        br
+        | integrated bot that would help people by giving them suggestions and
+        |             advice on health issues.
+    // End of About Section

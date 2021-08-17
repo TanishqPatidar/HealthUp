@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{ 
+    scroll-behavior: smooth; 
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Dynamic data section */
+.center-section{
+    background: url("./view.jpg")center/cover fixed no-repeat;
+    padding: 30px 0px;
+    min-height: 90vh;
+    font-family: 'Dosis', sans-serif;
+    
+  }
+  .center-section p{
+    font-size: 18px; 
+  }
+  .center-content{
+    display: flex;
+    justify-content: center;
+  }
+  .center-content #name{
+    padding-left: 15px;
+  }
+  .partition{
+    display: grid;
+    padding-left: 100px;
+    text-align: left;
+  }
+  .organ_affected h3 , .treatment h3, .diet h3, .not_diet h3, .symptoms h3{
+    padding: 20px 0px;
+  }
+  .organ_affected , .treatment, .diet, .not_diet, .symptoms{
+    border: 0px;
+    border-radius: 5px;
+    width: 90%;
+    padding: 30px;
+    background: rgba(231, 231, 231, 0.63);
+  }
+/* Dynamic data section end */
+
+/*Bot UI */
+.open-button img {
+    cursor: pointer;
+    opacity: 5;
+    position: fixed;
+    bottom: 10px;
+    right: 1px;
+    width: 120px;
+}
+
+.open-button:hover {
+    opacity: 1;
+}
+
+/*Bot UI end*/
+
+/* Header-Section */
+.topnav {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.137);
+}
+
+.topnav a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 19px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topnav .brand{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.dropmenu {
+    margin-right: -10px;
+    float: right;
+    overflow: hidden;
+}
+
+.dropmenu .menubtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 19px 25px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.dropmenu-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropmenu-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav a:hover,
+.dropmenu:hover .menubtn {
+    background-color: #555;
+    color: white;
+}
+
+.dropmenu-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropmenu:hover .dropmenu-content {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+
+    .topnav a:not(:first-child),
+    .dropmenu .menubtn {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .topnav.responsive .dropmenu {
+        float: none;
+    }
+
+    .topnav.responsive .dropmenu-content {
+        position: relative;
+    }
+
+    .topnav.responsive .dropmenu .menubtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+}
+/*  End of header section */
+
+/* Update profile*/
+
+.modal-input[type=text], .modal-input[type=password], .modal-input[type=age], .modal-input[type=number]{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* Add a background color when the inputs get focus */
+  .modal-input[type=text]:focus, .modal-input[type=password]:focus, .modal-input[type=age]:focus, .modal-input[type=number]:focus{
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 2px 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+  
+  /* Float cancel and signup buttons and add an equal width */
+  .cancelbtn, .signupbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    float: left;
+    width: 50%;
+  }
+  
+  /* Add padding to container elements */
+  .container {
+    padding: 16px;
+    max-width: 100%;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #7d808667;
+    padding-top: 50px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+   
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+
+  .clearfix{
+  display: flex;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+  }
+/* End of Update profile */
+
+/* Dynamic Menu Css */
+   .just-padding{
+    padding: 40px;
+    letter-spacing:3px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+    .just-padding h2{
+      font-size:40px;
+      color:whitesmoke;
+    }
+    .dynamic-menu{
+    font-size: 30px ;
+    text-decoration: none;
+    padding:40px 0px;
+    }
+    .dynamic-menu a{
+    text-decoration: none;
+    color: black; 
+    }
+    .dynamic-menu a span {
+      color: whitesmoke; 
+      margin-left:60px;
+      padding-bottom:8px;
+      transition: all ease .1s;
+      letter-spacing:5px;
+      padding: 5px 12px;
+      border:2px solid transparent;
+    }
+    .dynamic-menu a span:hover{
+      color:black;
+      border:2px solid black;
+      background: rgba(233, 227, 227, 0.14);       
+    }
+/* End of Dynamic Menu Css */
+
+/* Contact Section */
+
+.contact-section{
+    min-height: 30vh;
+    background: white;
+    color: black;
+    text-align: center;
+}
+.contact-info{
+   padding-top: 40px;
+   font-size: 40px;
+}
+.content-manager{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px;
+    margin-top:60px ;
+    align-items: center;
+}
+.content-manager h4{
+    padding-right: 15px;
+}
+.content-manager i{
+    padding-right: 8px;
+}
+.content-manager a{
+    color: black;
+    padding-right: 15px;
+    text-decoration: none;
+}
+.content-manager > p{
+    padding: 30px;
+}
+/* End of contact section */
+
+/* About Section */
+.about-section{
+    min-height: 50vh;
+    background: black;
+    color: white;
+    padding-top: 30px;
+    
+}
+.about-section a{
+    /* color: rgb(0, 0, 0); */
+    font-size: 25px;
+    padding: 18px 8px;
+}
+.about-section a > i{
+    color: rgb(167, 27, 27);
+}
+.about-section > h1{
+    text-align: center;
+}
+.about-section img{
+    height: 300px;
+    width: 250px;
+    border-radius: 8px;
+}
+.developer{
+display: flex;
+justify-content:center;
+align-items:center;
+flex-wrap: wrap;
+margin: 15px;
+}
+
+.about-section .divisions{
+    margin: 15px 40px;
+    min-height: 300px;
+    min-width: 250px;
+    border-radius: 8px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .3s ease all;
+    /* overflow: hidden; */
+}
+.about-section .developer .divisions:hover{
+transform: rotateY(180deg);
+}
+.about-section .divisions .developer-card{
+    position: absolute;
+    max-width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+.about-section .divisions .developer-des{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: white;
+    color: black;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    text-align: center;
+    padding-top: 15%;
+}
+.about-section-footer{
+min-height: 10vh;
+background: black;
+text-align: center;
+color: cornsilk;
+padding: 23px 30px;
+font-size: 20px;
+}

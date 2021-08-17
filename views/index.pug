@@ -1,0 +1,222 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='stylepug.css')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' crossorigin='anonymous')
+    script(src='./main.js')
+    title Document
+  body
+    // HEADER SECTION
+    #myTopnav.topnav
+      a.brand(href='http://localhost:3000/index') HealthUp
+      .dropdown
+        button.dropbtn= user
+          i.fa.fa-caret-down
+        .dropdown-content
+          a(href='/users') View Profile
+          a(href='#Update_profile' onclick="document.getElementById('id01').style.display='block'" style='width:auto;') Update Profile
+          a(href='/users/id') Delete Profile
+          a(href='/auth') Logout
+      a(href='#contactsection') Contact
+      a(href='#about') About
+      a(href='http://localhost:3000/index') Home
+      a.active(href='http://localhost:3000/m_bot') Medibot
+      a.icon(href='javascript:void(0);' style='font-size:15px;' onclick='myFunction()') ☰
+    // END OF HEADER SECTION
+    // Update Profile
+    #id01.modal
+      span.close(onclick="document.getElementById('id01').style.display='none'" title='Close Modal') ×
+      form.modal-content(method='POST' action='/users' )
+        .container
+          h1 Update Profile
+          p Please fill in this form to update your account.
+          hr
+          label(for='name')
+            b Name
+          input.modal-input(type='text' placeholder='Enter Name' name='name' required='')
+          label(for='email')
+            b Email
+          input.modal-input(type='text' placeholder='Enter Email' name='email' required='')
+          label(for='phone')
+            b Phone No
+          input.modal-input(type='text' placeholder='Enter Phone' name='phone' required='')
+          label(for='password')
+            b Password
+          input.modal-input(type='password' placeholder='Enter password' name='password' required='')
+
+          label(for='age')
+            b Age
+          input.modal-input(type='age' placeholder='Enter Age' name='age' required='')
+          label(for='weight')
+            b Weight
+          input.modal-input(type='number' placeholder='Enter Weight' name='weight' required='')
+          label(for='height')
+            b Height
+          input.modal-input(type='number' placeholder='Enter Height' name='height' required='')
+          .clearfix
+            button.cancelbtn(type='button' onclick="document.getElementById('id01').style.display='none'")
+              | Cancel
+            button.signupbtn(type='submit') Update
+    // Update Profile
+   
+    // Center Section
+    .centersection
+      .middle-section
+        .middle-section-image
+          .image-box
+            img(src='./dis.jpeg' alt='')
+          .content
+            a(href='/disease')
+              h3 Diseases
+        .middle-section-image
+          .image-box
+            img(src='./mental.jpeg' alt='')
+          .content
+            a(href='/mentalhealth')
+              h3 Mental
+        .middle-section-image
+          .image-box
+            img(src='./nut.jpeg' alt='')
+          .content
+            a(href='/nutrition')
+              h3 Nutrition
+      .quote
+        | Happiness is the highest form of health. 
+        br
+        br
+        | - Dalai Lama
+    // End of Center Section
+    // Contact Section
+    #contactsection.contact-section
+      .contact-section-content
+        h4.contact-info Contact Info
+        .content-manager
+          p.address
+          h4
+            i.fa.fa-address-card(aria-hidden='true')
+            | Address
+          |  216, Sneh Nagar, Mandsaur 
+          br
+          |  Madhya Pardesh ,India
+          p
+          p.phone
+          h4
+            i.fa.fa-phone(aria-hidden='true')
+            | Phone
+          |  8269745658
+          p
+          p.email
+          h4
+            i.fa.fa-envelope-o(aria-hidden='true')
+            | Email
+          br
+          a(href='') raviprajapati45678@gmail.com
+          p
+    // End of  Contact Section
+    // About Section
+    #about.about-section
+      h1.about-section-heading ABOUT US
+      br
+      .developer
+        .divisions
+          .developer-card
+            img(src='./prateek.jpeg' alt='')
+          .developer-des
+            h2.name-heading Pratik Gupta
+            br
+            h4
+              | Front-end 
+              br
+              |  & 
+              br
+              |  Database Collection
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./rishabh.jpeg' alt='')
+          .developer-des.middle
+            h2.name-heading Rishabh Rathore
+            br
+            h4
+              | Back-end
+              br
+              |  & 
+              br
+              | Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./ravi.jpg' alt='')
+          .developer-des.middle
+            h2.name-heading Ravi Varujana
+            br
+            h4
+              | Front-end
+              br
+              |  & 
+              br
+              |  Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./tanishq.jpeg' alt='')
+          .developer-des.middle
+            h2.name-heading Tanishq Patidar
+            br
+            h4
+              | Back-end 
+              br
+              |  & 
+              br
+              | Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+        .divisions.middle
+          .developer-card
+            img(src='./varun.jpg' alt='')
+          .developer-des.middle
+            h2.name-heading Varun Lachhwani
+            br
+            h4
+              | Front-end 
+              br
+              |  & 
+              br
+              | Bot Training
+            br
+            a(href='')
+              i.fa.fa-facebook-official(aria-hidden='true')
+            a(href='')
+              i.fa.fa-instagram(aria-hidden='true')
+            a(href='')
+              i.fa.fa-linkedin-square(aria-hidden='true')
+      p.about-section-footer
+        | This is a demo website by the students of IT department 3rd currently working on their minor project. All the teams
+        | members had put there efforts to make this project best. 'HealthUp' our website contains an integrated bot that would
+        | help people by giving them suggestions and advice on health issues.
+    // End of About Section
